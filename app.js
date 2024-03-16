@@ -13,20 +13,7 @@ const app = express();
 mongoose.connect(process.env.MONGODB_URL, {useNewUrlParser: true});
 
 const homeStartingContent = `
-  <p>Unleash Your Creativity: Dive into the World of Writing and Blogging! 📝✨</p>
-
-  <p>Writing isn't just a hobby; it's a journey of self-expression, exploration, and discovery. Whether you're penning down your thoughts, sharing your experiences, or weaving tales of imagination, writing opens doors to endless possibilities.</p>
-
-  <p>Key Highlights:</p>
-  <ul>
-    <li>Explore your passions: From travel adventures to culinary delights, hobbies to heartfelt anecdotes, your blog is your canvas to paint your passions and share your interests with the world.</li>
-    <li>Connect with like-minded individuals: Join a community of writers, bloggers, and enthusiasts who share your interests and inspire you to grow and evolve on your writing journey.</li>
-    <li>Embrace creativity: With every word you write, every story you tell, unleash your creativity and let your imagination soar to new heights.</li>
-    <li>Inspire and be inspired: As you share your stories and experiences, spark inspiration in others and create meaningful connections that transcend boundaries.</li>
-    <li>Make your mark: Leave a lasting impact with your words, leaving readers inspired, entertained, and eager for more.</li>
-  </ul>
-
-  <p>Whether you're a seasoned writer or just starting on your blogging adventure, let your passion guide you and your creativity flow as you embark on this thrilling journey of writing and self-discovery. 🌟🖋️💭</p>
+Unleash your inner wordsmith and embark on an exhilarating journey of self-expression with our blog platform! 🚀✍️ Dive into a world where every keystroke is a brushstroke, painting vivid stories, sharing experiences, and sparking connections. 🎨💬 Whether you're a seasoned writer or a budding enthusiast, our platform provides the perfect canvas for your creativity to flourish. 🌟📝 Join our vibrant community, connect with like-minded individuals, and let your words dance across the digital realm, leaving a lasting impact on readers worldwide. 💫🌍 Let's write, share, and inspire together! 🌟🚀
 `;
 
 
@@ -73,11 +60,12 @@ app.get("/", function(req, res){
       res.render("home", {
         startingContent: homeStartingContent,
         posts: foundContent
-        });
+      });
     })
     .catch(function(err) {
       console.log(err);
-    });
+    }
+  );
 });
 
 app.get("/about", function(req, res){
@@ -103,19 +91,16 @@ app.post("/compose", function(req, res){
     content: post.content
   });
 
-  newPost.save(
-    function(err) {
-      if (err) {
-        console.error("Error saving post:", err);
-        // Handle the error as needed, such as rendering an error page or sending an error response
-        return res.status(500).send("Error saving post");
-      } else {
-        console.log("Post saved successfully!");
-        res.redirect("/");
-      }
-    }
-  );
-
+  newPost.save()
+    .then(function() {
+      console.log("Post saved successfully!");
+      res.redirect("/");
+    })
+    .catch(function(err) {
+      console.error("Error saving post:", err);
+      // Handle the error as needed, such as rendering an error page or sending an error response
+      res.status(500).send("Error saving post");
+    });
 });
 
 app.get("/posts/:postId", function(req, res){

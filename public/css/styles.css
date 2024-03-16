@@ -83,7 +83,24 @@ body {
     background-color: #c0392b; /* Darken color on hover */
 }
 
-/* Footer Styles */
+/* Post Styles */
+.post {
+    padding-bottom: 20px; /* Add some spacing between posts */
+    position: relative; /* Ensure relative positioning for background image */
+}
+
+.post::after {
+    content: ''; /* Create a pseudo-element for the dotted line */
+    position: absolute;
+    bottom: 0; /* Align the pseudo-element at the bottom */
+    left: 50%; /* Position it in the center */
+    transform: translateX(-50%); /* Center horizontally */
+    width: 50%; /* Set the width of the dotted line */
+    height: 1px; /* Set the height of the dotted line */
+    background-image: repeating-linear-gradient(to right, transparent, transparent 3px, #000 3px, #000 4px); /* Create a repeating dotted line */
+}
+
+
 /* Footer Styles */
 .footer {
     background-color: #34495e;
