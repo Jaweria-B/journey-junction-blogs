@@ -13,19 +13,22 @@ const app = express();
 mongoose.connect(process.env.MONGODB_URL, {useNewUrlParser: true});
 
 const homeStartingContent = `
-  JavaScript: The Most Popular Programming Language of the Web
+  <p>Unleash Your Creativity: Dive into the World of Writing and Blogging! 📝✨</p>
 
-  JavaScript, often abbreviated as JS, is a high-level programming language that is widely used for web development. As the backbone of dynamic web pages, JavaScript allows developers to create interactive and engaging user experiences.
+  <p>Writing isn't just a hobby; it's a journey of self-expression, exploration, and discovery. Whether you're penning down your thoughts, sharing your experiences, or weaving tales of imagination, writing opens doors to endless possibilities.</p>
 
-  Key Features of JavaScript:
-  - Lightweight and versatile: JavaScript is lightweight and versatile, making it suitable for a wide range of applications.
-  - Client-side scripting: JavaScript runs on the client-side, enabling dynamic content manipulation and interaction within web browsers.
-  - Object-oriented: JavaScript supports object-oriented programming paradigms, allowing developers to create reusable and modular code.
-  - Event-driven programming: JavaScript uses event-driven programming, where actions or events trigger specific functions or behaviors.
-  - Rich ecosystem: JavaScript has a rich ecosystem of libraries, frameworks, and tools, such as React, Angular, and Vue.js, which streamline development and enhance productivity.
+  <p>Key Highlights:</p>
+  <ul>
+    <li>Explore your passions: From travel adventures to culinary delights, hobbies to heartfelt anecdotes, your blog is your canvas to paint your passions and share your interests with the world.</li>
+    <li>Connect with like-minded individuals: Join a community of writers, bloggers, and enthusiasts who share your interests and inspire you to grow and evolve on your writing journey.</li>
+    <li>Embrace creativity: With every word you write, every story you tell, unleash your creativity and let your imagination soar to new heights.</li>
+    <li>Inspire and be inspired: As you share your stories and experiences, spark inspiration in others and create meaningful connections that transcend boundaries.</li>
+    <li>Make your mark: Leave a lasting impact with your words, leaving readers inspired, entertained, and eager for more.</li>
+  </ul>
 
-  JavaScript is the foundation of modern web development, powering everything from simple interactive forms to complex single-page applications (SPAs). With its widespread adoption and continuous evolution, JavaScript remains the most popular programming language of the web.
+  <p>Whether you're a seasoned writer or just starting on your blogging adventure, let your passion guide you and your creativity flow as you embark on this thrilling journey of writing and self-discovery. 🌟🖋️💭</p>
 `;
+
 
 const aboutContent = `
   About Our Company
@@ -61,7 +64,7 @@ const Post = mongoose.model("Post", SchemaOfPost);
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static("public"));
+app.use('/public', express.static(__dirname + "/public"))
 
 
 app.get("/", function(req, res){
