@@ -18,25 +18,12 @@ Unleash your inner wordsmith and embark on an exhilarating journey of self-expre
 
 
 const aboutContent = `
-  About Our Company
-
-  Our company is dedicated to providing innovative solutions in the field of technology. With a team of passionate individuals, we strive to deliver high-quality products and services that meet the needs of our clients.
-
-  Key Highlights:
-  - Expertise: Our team consists of skilled professionals with expertise in various domains, including web development, mobile app development, artificial intelligence, and more.
-  - Collaboration: We believe in the power of collaboration and teamwork. By working closely with our clients, we ensure that their requirements are met and their expectations are exceeded.
-  - Innovation: Innovation is at the heart of everything we do. We continuously explore new technologies and approaches to stay ahead of the curve and deliver cutting-edge solutions.
-  - Customer Satisfaction: Customer satisfaction is our top priority. We go above and beyond to ensure that our clients are happy with the results and receive the support they need.
-
-  At our company, we are committed to excellence, integrity, and customer success. Partner with us and experience the difference!
+At our company, we are committed to delivering innovative solutions in the ever-evolving landscape of technology. With a dedicated team of experts, we strive to provide high-quality products and services tailored to meet the unique needs of our clients. Our key highlights include a diverse range of expertise spanning web development, mobile app development, artificial intelligence, and more. We strongly believe in the power of collaboration, working closely with our clients to ensure their requirements are not only met but exceeded. Innovation drives us forward, as we continuously explore new technologies and approaches to deliver cutting-edge solutions. Above all, customer satisfaction remains our top priority, as we go the extra mile to ensure our clients are delighted with the results and receive the support they need. Partner with us and experience the difference! 🚀
 `;
 
 const contactContent = `
-  Contact Us
+Got a question or need assistance? Reach out to us! Our dedicated team is here to address any concerns you may have and provide you with the support you need. Whether you're interested in our services, have feedback to share, or simply want to say hello, we'd love to hear from you. Don't hesitate to contact us today! 📧
 
-  Have a question or inquiry? Feel free to reach out to us! Our team is here to assist you and address any concerns you may have.
-
-  Whether you're interested in our services, have feedback to share, or simply want to say hello, we'd love to hear from you. Get in touch with us today!
 `;
 
 
