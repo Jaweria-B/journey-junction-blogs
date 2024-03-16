@@ -101,21 +101,22 @@ app.post("/compose", function(req, res){
   });
 
   newPost.save(
-    // function(err) {
-    // if (!err) {
-    //   res.redirect("/");
-    // }
-  // }
+    function(err) {
+      if (err) {
+        console.error("Error saving post:", err);
+        // Handle the error as needed, such as rendering an error page or sending an error response
+        return res.status(500).send("Error saving post");
+      } else {
+        console.log("Post saved successfully!");
+        res.redirect("/");
+      }
+    }
   );
-
-    res.redirect("/");
-  
 
 });
 
 app.get("/posts/:postId", function(req, res){
-  const requestedId = _.lowerCase(req.params.postId);
-
+  const requestedId = req.params.postId;
 
   Post.findOne(({_id: requestedId}))
     .then(function(foundItems) {
@@ -124,14 +125,6 @@ app.get("/posts/:postId", function(req, res){
         content: foundItems.content
       });
     })
-  // posts.forEach(function(post){
-  //   const storedTitle = _.lowerCase(post.title);
-
-  //   if (storedTitle === requestedTitle) {
-      
-  //   }
-  // });
-
 });
 
 app.listen(3000, function() {
